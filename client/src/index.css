@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 220 14% 25%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 22 93% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 171 68% 55%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 0 84% 70%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  --chart-1: 22 93% 64%;
+  --chart-2: 171 68% 55%;
+  --chart-3: 0 84% 70%;
+  --chart-4: 157 67% 40%;
+  --chart-5: 335 78% 58%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 22 93% 64%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 171 68% 55%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 0 84% 70%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .ios-card {
+    @apply bg-white rounded-xl shadow-sm dark:bg-gray-800 dark:text-white transition-all duration-300;
+  }
+  
+  .meal-circle {
+    @apply w-6 h-6 rounded-full inline-block mr-1.5 border-2 border-gray-300 dark:border-gray-600 transition-all duration-200;
+  }
+  
+  .meal-circle.active {
+    @apply border-primary bg-primary;
+  }
+  
+  .calendar-day {
+    @apply w-10 h-14 inline-flex flex-col items-center justify-center relative dark:text-gray-300 transition-all duration-200;
+  }
+  
+  .calendar-day.selected {
+    @apply bg-primary text-white rounded-full;
+  }
+  
+  .calendar-day.teethi {
+    @apply bg-accent bg-opacity-20 dark:bg-accent dark:bg-opacity-30;
+  }
+  
+  .meal-indicator {
+    @apply w-1.5 h-1.5 rounded-full bg-secondary mx-0.5 transition-all duration-200;
+  }
+  
+  .meal-indicators {
+    @apply flex absolute bottom-1;
+  }
+  
+  .bottom-nav-item {
+    @apply flex flex-col items-center justify-center p-2 text-center transition-colors duration-200 dark:text-gray-300;
+  }
+  
+  /* Page transitions */
+  .page-transition {
+    @apply w-full h-full min-h-screen;
+  }
+  
+  /* Smooth overall app transitions */
+  * {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+  
+  input, select, button {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  /* Card animations */
+  .ios-card:hover {
+    @apply shadow-md translate-y-[-2px];
+  }
+}
